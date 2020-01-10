@@ -8,7 +8,7 @@ export class Hello extends React.Component {
 
   render() {
     return (
-      <div>
+      <div> 
         Hello, World!
       </div>
     );
