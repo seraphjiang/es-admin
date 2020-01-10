@@ -9,6 +9,7 @@ import {
   EuiPageContentBody,
   EuiText
 } from '@elastic/eui';
+import { Hello } from '../hello';
 
 export class Main extends React.Component {
   constructor(props) {
@@ -54,6 +55,7 @@ export class Main extends React.Component {
                 <p>
                     The server time (via API call) is {this.state.time || 'NO API CALL YET'}
                 </p>
+                <Hello/>
               </EuiText>
             </EuiPageContentBody>
           </EuiPageContent>
