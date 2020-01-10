@@ -1,5 +1,9 @@
 import React from 'react';
 
+import {
+  EuiText
+} from '@elastic/eui';
+
 export class Hello extends React.Component {
   constructor(props) {
     super(props);
@@ -8,7 +12,10 @@ export class Hello extends React.Component {
 
   render() {
     return (
-      <div> 
+      <div>
+        <EuiText>
+            I'm a Eui Text
+        </EuiText>
         Hello, World!
       </div>
     );
