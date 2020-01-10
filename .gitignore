@@ -1,9 +1,7 @@
-<<<<<<< HEAD
 npm-debug.log*
 node_modules
 /build/
 /public/app.css
-=======
 # Logs
 logs
 *.log
@@ -108,4 +106,3 @@ dist
 
 # TernJS port file
 .tern-port
->>>>>>> 9fc7eaf91aa8e67d94451394a789c9d3a930d75d

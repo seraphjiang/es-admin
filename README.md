@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # es-admin
 
 > es admin
@@ -36,6 +35,3 @@ See the [kibana contributing guide](https://github.com/elastic/kibana/blob/maste
     Run the server tests using mocha.
 
 For more information about any of these commands run `yarn ${task} --help`. For a full list of tasks checkout the `package.json` file, or run `yarn run`.
-=======
-# es-admin
->>>>>>> 9fc7eaf91aa8e67d94451394a789c9d3a930d75d
