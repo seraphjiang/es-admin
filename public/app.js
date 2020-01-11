@@ -2,9 +2,10 @@ import React from 'react';
 import { uiModules } from 'ui/modules';
 import chrome from 'ui/chrome';
 import { render, unmountComponentAtNode } from 'react-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import 'ui/autoload/styles';
-import { Main } from './components/main';
+import { LseHome } from './pages/lse-home';
 
 const app = uiModules.get('apps/esAdmin');
 
@@ -23,7 +24,15 @@ function RootController($scope, $element, $http) {
   const domNode = $element[0];
 
   // render react to DOM
-  render(<Main title="es-admin" httpClient={$http} />, domNode);
+  // render(<LseHome title="es-admin" httpClient={$http} />, domNode);
+  // const history = createBrowserHistory({ basename: '/es_admin' });
+
+  render(
+    <Router >
+      <Route render={props => <LseHome title="ES Admin" httpClient={$http} {...props} />} />
+    </Router>,
+    domNode
+  );
 
   // unmount react on controller destroy
   $scope.$on('$destroy', () => {
