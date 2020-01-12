@@ -51,11 +51,11 @@ export class LseHome extends React.Component {
           </li>
         </ul>
         <Switch>
-          <Route path="">
-            <LseList />
-          </Route>
           <Route path="edit">
             <LseEdit />
+          </Route>
+          <Route path="/">
+            <LseList />
           </Route>
         </Switch>
 
