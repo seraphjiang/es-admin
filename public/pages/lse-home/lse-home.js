@@ -3,20 +3,8 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
-  useRouteMatch,
-  useParams
+  Link
 } from "react-router-dom";
-import {
-  EuiPage,
-  EuiPageHeader,
-  EuiTitle,
-  EuiPageBody,
-  EuiPageContent,
-  EuiPageContentHeader,
-  EuiPageContentBody,
-  EuiText
-} from '@elastic/eui';
 
 import { LseEdit } from '../lse-edit';
 import { LseList } from '../lse-list';
@@ -44,21 +32,26 @@ export class LseHome extends React.Component {
       <div>
         <ul>
           <li>
-            <Link to="/">List</Link>
+            <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="edit">Edit</Link>
+            <Link to="/list">List</Link>
+          </li>          
+          <li>
+            <Link to="/edit">Edit</Link>
           </li>
         </ul>
         <Switch>
-          <Route path="edit">
+          <Route path="/edit">
             <LseEdit />
           </Route>
+          <Route path="/list">
+            <LseList />
+          </Route>          
           <Route path="/">
             <LseList />
           </Route>
         </Switch>
-
       </div>      
     );
   }
