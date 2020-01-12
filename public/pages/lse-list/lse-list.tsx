@@ -67,13 +67,7 @@ export class LseList extends React.Component {
     ];
 
     return (
-      <EuiSideNav
-        mobileTitle="Navigate within $APP_NAME"
-        toggleOpenOnMobile={this.toggleOpenOnMobile}
-        isOpenOnMobile={this.state.isSideNavOpenOnMobile}
-        items={sideNav}
-        style={{ width: 192 }}
-      />
+      <div>list</div>
     );
   }
 }
