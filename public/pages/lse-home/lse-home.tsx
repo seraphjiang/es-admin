@@ -2,12 +2,13 @@ import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 import {
   EuiIcon,
-  EuiSideNav
+  EuiSideNav,
+  EuiPage,
+  EuiPageSideBar
 } from '@elastic/eui';
 
 
@@ -59,7 +60,7 @@ export class LseHome extends React.Component {
   }
   render() {
     const sideNav = [
-      this.createItem('Kibana', {
+      this.createItem('LSE Tool', {
         icon: <EuiIcon type="logoKibana" />,
         items: [
           this.createItem('Has normal children', {
@@ -91,14 +92,16 @@ export class LseHome extends React.Component {
 
     return (
       <Router>
-        <div>
-          <EuiSideNav
-            mobileTitle="Navigate within $APP_NAME"
-            toggleOpenOnMobile={this.toggleOpenOnMobile}
-            isOpenOnMobile={this.state.isSideNavOpenOnMobile}
-            items={sideNav}
-            style={{ width: 192 }}
-          />
+        <EuiPage>
+          <EuiPageSideBar>
+            <EuiSideNav
+              mobileTitle="Navigate within $APP_NAME"
+              toggleOpenOnMobile={this.toggleOpenOnMobile}
+              isOpenOnMobile={this.state.isSideNavOpenOnMobile}
+              items={sideNav}
+              style={{ width: 192 }}
+            />
+          </EuiPageSideBar>
           <Switch>
             <Route path="/edit">
               <LseEdit />
@@ -110,7 +113,7 @@ export class LseHome extends React.Component {
               <LseList />
             </Route>
           </Switch>
-        </div>
+        </EuiPage>
       </Router>
     );
   }
