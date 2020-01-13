@@ -11,7 +11,8 @@ import {
   EuiFormRow,
   EuiFieldText,
   EuiButton,
-  EuiDatePicker
+  EuiDatePicker,
+  EuiPanel
 } from '@elastic/eui';
 import moment from 'moment';
 
@@ -70,6 +71,18 @@ export class LseEdit extends React.Component {
                   onChange={this.handleChange}                  
                 />
               </EuiFormRow>
+            </EuiFlexItem>
+          </EuiFlexGroup>
+          <EuiFlexGroup>
+            <EuiFlexItem >
+              <EuiPanel
+                betaBadgeLabel={"Filter"}
+                betaBadgeTooltipContent={
+                  'Build filters for LSE'
+                }
+                onClick={() => window.alert('Card clicked')}>
+                I am some panel content
+              </EuiPanel>
             </EuiFlexItem>
           </EuiFlexGroup>
         </EuiPageContentBody>
