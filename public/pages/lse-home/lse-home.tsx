@@ -94,11 +94,11 @@ export class LseHome extends React.Component {
             />
           </EuiPageSideBar>
           <Switch>
-            <Route path="/edit">
-              <LseEdit />
-            </Route>
             <Route path="/list">
               <LseList />
+            </Route>            
+            <Route path="/edit">
+              <LseEdit />
             </Route>
             <Route path="/">
               <LseList />
