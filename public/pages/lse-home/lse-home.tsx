@@ -1,8 +1,9 @@
 import React from 'react';
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Switch,
-  Route
+  Route,
+  Redirect
 } from "react-router-dom";
 import {
   EuiIcon,
@@ -15,6 +16,15 @@ import {
 import { LseEdit } from '../lse-edit';
 import { LseList } from '../lse-list';
 // import { LseDetail } from '../lse-detail';
+
+
+export interface RedirectWrapperProps {
+  to: string;
+}
+
+export const RedirectWrapper = ({ to }: RedirectWrapperProps) => {
+  return <Redirect to={to} />;
+};
 
 export class LseHome extends React.Component {
   constructor(props) {
@@ -35,6 +45,8 @@ export class LseHome extends React.Component {
     this.setState({
       selectedItemName: name,
     });
+    debugger
+    <Redirect to={"/edit"} />;
   };
 
   createItem = (name, data = {}) => {
@@ -44,7 +56,7 @@ export class LseHome extends React.Component {
       id: name,
       name,
       isSelected: this.state.selectedItemName === name,
-      onClick: () => this.selectItem(name),
+      href: '#/' + name
     };
   };
 
@@ -63,35 +75,14 @@ export class LseHome extends React.Component {
       this.createItem('LSE Tool', {
         icon: <EuiIcon type="logoKibana" />,
         items: [
-          this.createItem('Has normal children', {
-            items: [
-              this.createItem('Without forceOpen', {
-                items: [this.createItem('Child 1'), this.createItem('Child 2')],
-              }),
-            ],
-          }),
-          this.createItem('Normally not open', {
-            items: [
-              this.createItem('Has forceOpen:true', {
-                forceOpen: true,
-                items: [this.createItem('Child 3'), this.createItem('Child 4')],
-              }),
-            ],
-          }),
-          this.createItem('With forceOpen:true', {
-            forceOpen: true,
-            items: [
-              this.createItem('Normal child', {
-                items: [this.createItem('Child 5'), this.createItem('Child 6')],
-              }),
-            ],
-          }),
+          this.createItem('edit', {}),
+          this.createItem('list', {}),
         ],
       }),
     ];
 
     return (
-      <Router>
+      <Router basename={'/es_admin'} >
         <EuiPage>
           <EuiPageSideBar>
             <EuiSideNav
