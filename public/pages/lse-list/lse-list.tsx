@@ -7,6 +7,10 @@ import {
   EuiBasicTable,
   EuiTitle,
   EuiHealth,
+  EuiButton,
+  EuiFlexGroup,
+  EuiFlexItem,
+  EuiHeaderSectionItem,
 } from '@elastic/eui';
 
 export const Table = () => {
@@ -21,13 +25,13 @@ export const Table = () => {
       name: 'Created By',
     },
     {
-      field: 'createAt',
-      name: 'Created At',
+      field: 'startAt',
+      name: 'Started At',
       dataType: 'date',
     },
     {
-      field: 'updateAt',
-      name: 'Last Updated At',
+      field: 'endAt',
+      name: 'Ended At',
       dataType: 'date',
     },
     {
@@ -47,26 +51,26 @@ export const Table = () => {
       id: '1',
       description: '2019-12-18 KaOS LSE',
       createdBy: 'huanji',
-      createAt: Date.now(),
-      updateAt: Date.now(),
+      startAt: Date.now(),
+      endAt: Date.now(),
       state: true
     },
     {
       id: '2',
       description: 'IAD 8/31 LSE',
       createdBy: 'huanji',
-      createAt: Date.now(),
-      updateAt: Date.now(),
+      startAt: Date.now(),
+      endAt: Date.now(),
       state: false
     },
     {
       id: '3',
       description: 'MAY-31-2018 - IAD12 Lightening Strike LSE',
       createdBy: 'huanji',
-      createAt: Date.now(),
-      updateAt: Date.now(),
+      startAt: Date.now(),
+      endAt: Date.now(),
       state: false
-    }    
+    }
   ]
 
   const getRowProps = item => {
@@ -113,13 +117,31 @@ export class LseList extends React.Component {
       <EuiPageContent>
         <EuiPageContentHeader>
           <EuiPageContentHeaderSection>
-            <EuiTitle>
-              <h2>Content title</h2>
-            </EuiTitle>
+            <EuiHeaderSectionItem>
+              <EuiTitle>
+                <h2>AES us-east-1(IAD) LSE Tool</h2>
+              </EuiTitle>
+            </EuiHeaderSectionItem>
+            <EuiHeaderSectionItem>
+
+            </EuiHeaderSectionItem>
+
           </EuiPageContentHeaderSection>
         </EuiPageContentHeader>
         <EuiPageContentBody>
-          <Table />
+          <EuiFlexGroup>
+            <EuiFlexItem grow={false}>
+              <EuiButton
+                onClick={() => window.alert('create new LSE')}
+                iconType="addDataApp">
+              </EuiButton>
+            </EuiFlexItem>
+          </EuiFlexGroup>
+          <EuiFlexGroup>
+            <EuiFlexItem>
+              <Table />
+            </EuiFlexItem>
+          </EuiFlexGroup>
         </EuiPageContentBody>
       </EuiPageContent>
     );
