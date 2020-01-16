@@ -15,7 +15,7 @@ import {
 
 import { LseEdit } from '../lse-edit';
 import { LseList } from '../lse-list';
-// import { LseDetail } from '../lse-detail';
+import { LseDetail } from '../lse-detail';
 
 
 export interface RedirectWrapperProps {
@@ -73,12 +73,23 @@ export class LseHome extends React.Component {
   render() {
     const sideNav = [
       this.createItem('LSE Tool', {
-        icon: <EuiIcon type="logoKibana" />,
+        icon: <EuiIcon type="searchProfilerApp" />,
         items: [
+          this.createItem('events', {}),
           this.createItem('edit', {}),
-          this.createItem('list', {}),
+          this.createItem('detail', {}),
         ],
       }),
+      this.createItem('Ops Console', {
+        icon: <EuiIcon type="devToolsApp" />,
+        items: [
+          this.createItem('Oncall Tasks', {}),
+          this.createItem('Domain Resource', {}),
+          this.createItem('Customer Resource', {}),
+          this.createItem('Oncall Handoff', {}),
+        ],
+      }),
+
     ];
 
     return (
@@ -94,11 +105,14 @@ export class LseHome extends React.Component {
             />
           </EuiPageSideBar>
           <Switch>
-            <Route path="/list">
+            <Route path="/events">
               <LseList />
-            </Route>            
+            </Route>
             <Route path="/edit">
               <LseEdit />
+            </Route>
+            <Route path="/detail">
+              <LseDetail />
             </Route>
             <Route path="/">
               <LseList />

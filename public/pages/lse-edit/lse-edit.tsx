@@ -40,7 +40,7 @@ export class LseEdit extends React.Component {
           <EuiPageContentHeaderSection>
             <EuiHeaderSectionItem>
               <EuiTitle>
-                <h2>MAY-31-2018 - IAD12 Lightening Strike LSE</h2>
+                <h2></h2>
               </EuiTitle>
             </EuiHeaderSectionItem>
             <EuiHeaderSectionItem>
@@ -53,7 +53,7 @@ export class LseEdit extends React.Component {
           <EuiFlexGroup>
             <EuiFlexItem grow={3} fullWidth>
               <EuiFormRow label="Name" helpText="Name the lse" fullWidth>
-                <EuiFieldText fullWidth />
+                <EuiFieldText fullWidth value={"MAY-31-2018 - IAD12 Lightening Strike LSE"} />
               </EuiFormRow>
             </EuiFlexItem>
             <EuiFlexItem grow={false}>
