@@ -50,7 +50,6 @@ export class LseHome extends React.Component {
   };
 
   createItem = (name, data = {}) => {
-    // NOTE: Duplicate `name` values will cause `id` collisions.
     return {
       ...data,
       id: name,
@@ -89,7 +88,6 @@ export class LseHome extends React.Component {
           this.createItem('Oncall Handoff', {}),
         ],
       }),
-
     ];
 
     return (
