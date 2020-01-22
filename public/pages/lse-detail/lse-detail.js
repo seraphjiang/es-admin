@@ -14,7 +14,8 @@ import {
   EuiSuperDatePicker,
   EuiSpacer,
   EuiBasicTable,
-  EuiHealth
+  EuiHealth,
+  EuiText
 } from '@elastic/eui';
 import moment from 'moment';
 
@@ -104,7 +105,7 @@ export class LseDetail extends React.Component {
 
     this.state = {
       startDate: moment(),
-      isLoading: false,
+      isLoading: false
     };
 
     this.isDarkTheme = true;
@@ -139,6 +140,11 @@ export class LseDetail extends React.Component {
     const { httpClient } = this.props;
     httpClient.get('../api/es-admin/example').then((resp) => {
       console.log(resp.data.time);
+      this.setState({
+        time: resp.data.time,
+        startDate: moment(),
+        isLoading: false
+      });
     });
   }
 
@@ -216,6 +222,20 @@ export class LseDetail extends React.Component {
                   <EuiIcon type="alert" color="danger" />
                 </EuiStat>
               </EuiPanel>
+            </EuiFlexItem>
+          </EuiFlexGroup>
+
+          <EuiFlexGroup>
+            <EuiFlexItem >
+              <EuiSpacer />
+              <EuiText>
+                <h3>
+                    You have successfully created your first Kibana Plugin!
+                </h3>
+                <p>
+                    The server time (via API call) is {this.state.time || 'NO API CALL YET'}
+                </p>
+              </EuiText>
             </EuiFlexItem>
           </EuiFlexGroup>
           <EuiFlexGroup>
