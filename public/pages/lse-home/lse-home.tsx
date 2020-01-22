@@ -64,12 +64,15 @@ export class LseHome extends React.Component {
        FOR EXAMPLE PURPOSES ONLY.  There are much better ways to
        manage state and update your UI than this.
     */
-    // const { httpClient } = this.props;
-    // httpClient.get('../api/es-admin/example').then((resp) => {
-    //   this.setState({ time: resp.data.time });
-    // });
+
   }
   render() {
+
+    const { httpClient } = this.props;
+    httpClient.get('../api/es-admin/example').then((resp) => {
+      console.log(resp.data.time);
+    });
+
     const sideNav = [
       this.createItem('LSE Tool', {
         icon: <EuiIcon type="searchProfilerApp" />,
@@ -109,9 +112,7 @@ export class LseHome extends React.Component {
             <Route path="/edit">
               <LseEdit />
             </Route>
-            <Route path="/detail">
-              <LseDetail />
-            </Route>
+            <Route path="/detail" render={props => <LseDetail title="ES Detail" httpClient={httpClient} {...props} />} />
             <Route path="/">
               <LseList />
             </Route>

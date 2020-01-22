@@ -136,6 +136,10 @@ export class LseDetail extends React.Component {
   }
 
   componentDidMount() {
+    const { httpClient } = this.props;
+    httpClient.get('../api/es-admin/example').then((resp) => {
+      console.log(resp.data.time);
+    });
   }
 
   render() {
