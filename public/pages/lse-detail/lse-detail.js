@@ -111,9 +111,6 @@ export class LseDetail extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.onToggleChange = this.onToggleChange.bind(this);
-    // setTimeout(() => {
-    //   this.handleChange(moment());
-    // }, 2000);
   }
 
   handleChange(date) {
@@ -125,6 +122,12 @@ export class LseDetail extends React.Component {
       start: 'now-30m',
       end: 'now',
     });
+  }
+
+  updateTable() {
+    console.log('hello');
+    debugger
+    items[0].account = '9876543210987';
   }
 
   onToggleChange(e) {
@@ -152,16 +155,12 @@ export class LseDetail extends React.Component {
         <EuiPageContentBody>
           <EuiFlexGroup>
           </EuiFlexGroup>
-
           <EuiFlexGroup>
             <EuiFlexItem >
               <EuiSuperDatePicker />
               <EuiSpacer />
-
             </EuiFlexItem>
           </EuiFlexGroup>
-
-
           <EuiFlexGroup>
             <EuiFlexItem>
               <EuiPanel>
@@ -169,7 +168,9 @@ export class LseDetail extends React.Component {
                   title="8,888"
                   description="Total Domains"
                   textAlign="right"
-                  isLoading={this.state.isLoading}>
+                  isLoading={this.state.isLoading}
+                  onClick={() => this.updateTable()}
+                >
                   <EuiIcon type="empty" />
                 </EuiStat>
               </EuiPanel>
@@ -181,7 +182,9 @@ export class LseDetail extends React.Component {
                   description="Total Impacted Domains"
                   titleColor="accent"
                   textAlign="right"
-                  isLoading={this.state.isLoading}>
+                  isLoading={this.state.isLoading}
+                  onClick={() => window.alert('create new LSE')}
+                >
                   <EuiIcon type="clock" color="accent" />
                 </EuiStat>
               </EuiPanel>
